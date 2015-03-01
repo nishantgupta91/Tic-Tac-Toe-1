@@ -1,0 +1,62 @@
+html {
+	font-family: arial;
+}
+
+head {
+	font-size: 40px;
+}
+
+body {
+	background-color: #000000;
+	font-family: arial;
+	font-size: 30px;
+}
+
+span {
+	color: #FF99FF;
+}
+
+div {
+	height: 150px;
+	width: 150px;
+	border-radius: 5px;
+	background-color: #5500A9;
+	display: inline-block;
+	padding: 15px;
+	margin: auto;
+}
+
+#winner {
+	height: 30px;
+	width: 120px;
+	border-radius: 5px;
+	background-color: #5500A9;
+	display: inline-block;
+	padding: 15px;
+	margin: auto;
+	text-align: center;
+}
+#winner:hover {
+	color: #5500A9;
+	background-color: #00FF99;
+}
+
+div:hover {
+	background-color: #FF99FF;
+}
+
+.xgo {
+	background-image: url("images/x.png");
+}
+
+.ogo {
+	background-image: url("images/o.png");
+}
+
+.xfin {
+	background-image: url("images/xFinal.png");
+}
+
+.ofin {
+	background-image: url("images/oFinal.png");
+}
