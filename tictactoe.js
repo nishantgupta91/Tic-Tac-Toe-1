@@ -11,6 +11,7 @@ $(document).ready(function(){
 	};
 
 	$('#winner').hide();
+	$('#winner').click('disable');
 
 	var xWins = tally.forX;
 	var oWins = tally.forO;
