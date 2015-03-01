@@ -7,8 +7,6 @@
 
 // forEach(winners, checkWin) in if statement?
 
-// Change parameter names, fix win counts?
-
 $(document).ready(function(){
 	var tally = {
 		forX: 0,
@@ -125,12 +123,12 @@ $(document).ready(function(){
 		$('#winner').hide();
 		$('.who').show();
 		if ((xWins + oWins) % 2 === 0){
-			moves = 2;
-			$('.turn').html("O");
-		}
-		else {
 			moves = 1;
 			$('.turn').html("X");
+		}
+		else {
+			moves = 2;
+			$('.turn').html("O");
 		}
 		xBoxes = [];
 		oBoxes = [];
