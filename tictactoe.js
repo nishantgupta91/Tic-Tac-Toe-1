@@ -33,11 +33,11 @@ $(document).ready(function(){
 
 	function youWon(array, current, finClass, winXO, winningLtr, winningAmt) {
 		console.log(array, "wiiinnnnssss!");
-			// for (var y = 0; y < winners[i].length; y++){
-			// 	var identity = document.getElementById(winners[y]);
-			// 	identity.removeClass(current);
-			// 	identity.addClass(finClass);
-			// }
+		// for (var y = 0; y < array.length; y++){
+		// 	var identity = document.getElementById(thisOne);
+		// 	identity.removeClass(current);
+		// 	identity.addClass(finClass);
+		// }
 		$('div').off('click');
 		$('#winner').html(winXO);
 		$('#winner').show();
@@ -58,10 +58,8 @@ $(document).ready(function(){
 				}
 				else {
 					quant.push(count[posArray[j]]);
-					console.log(quant);
 					if (quant.length > 2 && $.inArray(-1, quant) == -1){
 						var winArray = posArray;
-						console.log(winArray, "Winner!");
 						youWon(winArray, current, finClass, winXO, winningLtr, winningAmt);
 					}
 				}
@@ -77,28 +75,24 @@ $(document).ready(function(){
 		else if (moves > 4 && moves % 2 != 0){
 			$(this).addClass('xgo');
 			xBoxes.push($(this).attr('id'));
-			console.log(xBoxes);
 			checkWin(xBoxes, 'xgo', 'xfin', "X Wins!!", xWins, '.xwins');
 			moves++;
 		}
 		else if (moves > 4 && moves % 2 === 0){
 			$(this).addClass('ogo');
 			oBoxes.push($(this).attr('id'));
-			console.log(oBoxes);
 			checkWin(oBoxes, 'ogo', 'ofin', "O Wins!!", oWins, '.owins');
 			moves++;
 		}
 		else if (moves % 2 != 0){
 			$(this).addClass('xgo');
 			xBoxes.push($(this).attr('id'));
-			console.log(xBoxes);
 			$('.turn').html("O");
 			moves++;
 		}
 		else if (moves % 2 === 0){
 			$(this).addClass('ogo');
 			oBoxes.push($(this).attr('id'));
-			console.log(oBoxes);
 			$('.turn').html("X");
 			moves++;
 		}
