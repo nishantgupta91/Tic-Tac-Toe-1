@@ -1,9 +1,6 @@
 // return click event function/ remove ability to click after win
 	// fix class change on winning tiles
-// Only show play again button when game finishes?
-// highlight winning 3 [.addClass('xfin'/'ofin');]
-// add case for stalemate
-// 3rd game starts with O?
+	// highlight winning 3 [.addClass('xfin'/'ofin');]
 
 // forEach(winners, checkWin) in if statement?
 
@@ -14,7 +11,6 @@ $(document).ready(function(){
 	};
 
 	$('#winner').hide();
-	$('button').hide();
 
 	var xWins = tally.forX;
 	var oWins = tally.forO;
@@ -56,7 +52,6 @@ $(document).ready(function(){
 		console.log("O wins: " + tally.forO);
 		console.log("X wins: " + tally.forX);
 		$('.who').hide();
-		$('button').show();
 	};
 
 	function checkWin(winBoxes, current, finClass, winXO, winCount, letterWins) {
@@ -85,17 +80,16 @@ $(document).ready(function(){
 		if ($(this).hasClass('xgo') || $(this).hasClass('ogo')){
 			moves = moves;
 		}
-		// else if (moves > 9) {
-			
-		// 	$('#1 #2 #3 #4 #5 #6 #7 #8 #9').removeClass();
-		// 	$('#1 #2 #3 #4 #5 #6 #7 #8 #9').addClass('xfin');
-		// }
 		else if (moves > 4 && moves % 2 != 0){
 			$(this).addClass('xgo');
 			xBoxes.push($(this).attr('id'));
 			$('.turn').html("O");
 			checkWin(xBoxes, 'xgo', 'xfin', "X Wins!!", xWins, '.xwins');
 			moves++;
+			console.log(moves);
+			if (moves > 9){
+				$('button').show();
+			}
 		}
 		else if (moves > 4 && moves % 2 === 0){
 			$(this).addClass('ogo');
@@ -103,6 +97,10 @@ $(document).ready(function(){
 			$('.turn').html("X");
 			checkWin(oBoxes, 'ogo', 'ofin', "O Wins!!", oWins, '.owins');
 			moves++;
+			console.log(moves);
+			if (moves > 10){
+				$('button').show();
+			}
 		}
 		else if (moves % 2 != 0){
 			$(this).addClass('xgo');
@@ -133,6 +131,5 @@ $(document).ready(function(){
 		xBoxes = [];
 		oBoxes = [];
 		// $('div').click('enable');
-		$('button').hide();
 	});
 });
