@@ -1,11 +1,13 @@
 // return click event function/ remove ability to click after win
-// fix class change on winning tiles
+	// fix class change on winning tiles
 // Only show play again button when game finishes?
 // highlight winning 3 [.addClass('xfin'/'ofin');]
 // add case for stalemate
+// 3rd game starts with O?
 
 // forEach(winners, checkWin) in if statement?
 
+// Change parameter names, fix win counts?
 
 $(document).ready(function(){
 	var tally = {
@@ -33,23 +35,33 @@ $(document).ready(function(){
 		["3", "5", "7"],
 	];
 
-	function youWon(array, current, finClass, winXO, winningLtr, winningAmt) {
+	function youWon(array, current, finClass, winXO, winCount, letterWins) {
 		console.log(array, "wiiinnnnssss!");
 		// for (var y = 0; y < array.length; y++){
 		// 	var identity = document.getElementById(thisOne);
 		// 	identity.removeClass(current);
 		// 	identity.addClass(finClass);
 		// }
-		$('div').click('disable');
+		// $('div').click('disable');
 		$('#winner').html(winXO);
 		$('#winner').show();
-		winningLtr += 1;
-		$(winningAmt).html(winningLtr)
+		if (winCount == tally.forX){
+			tally.forX++;
+			xWins = tally.forX;
+			$(letterWins).html(tally.forX);
+		}
+		else if (winCount == tally.forO){
+			tally.forO++;
+			oWins = tally.forO;
+			$(letterWins).html(tally.forO);
+		}
+		console.log("O wins: " + tally.forO);
+		console.log("X wins: " + tally.forX);
 		$('.who').hide();
 		$('button').show();
 	};
 
-	function checkWin(winBoxes, current, finClass, winXO, winningLtr, winningAmt) {
+	function checkWin(winBoxes, current, finClass, winXO, winCount, letterWins) {
 		for (var i = 0; i < winners.length; i++){
 			var posArray = winners[i];
 			var count = {};
@@ -63,7 +75,7 @@ $(document).ready(function(){
 					quant.push(count[posArray[j]]);
 					if (quant.length > 2 && $.inArray(-1, quant) == -1){
 						var winArray = posArray;
-						youWon(winArray, current, finClass, winXO, winningLtr, winningAmt);
+						youWon(winArray, current, finClass, winXO, winCount, letterWins);
 					}
 				}
 			}
@@ -122,7 +134,7 @@ $(document).ready(function(){
 		}
 		xBoxes = [];
 		oBoxes = [];
-		$('div').click('enable');
+		// $('div').click('enable');
 		$('button').hide();
 	});
 });
