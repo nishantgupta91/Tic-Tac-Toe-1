@@ -31,7 +31,6 @@ $(document).ready(function(){
 	];
 
 	function youWon(array, current, finClass, winXO, winCount, letterWins) {
-		console.log(array, "wiiinnnnssss!");
 		// for (var y = 0; y < array.length; y++){
 		// 	var identity = document.getElementById(thisOne);
 		// 	identity.removeClass(current);
@@ -50,9 +49,8 @@ $(document).ready(function(){
 			oWins = tally.forO;
 			$(letterWins).html(tally.forO);
 		}
-		console.log("O wins: " + tally.forO);
-		console.log("X wins: " + tally.forX);
 		$('.who').hide();
+		$('div').css('pointer-events', 'none');
 	};
 
 	function checkWin(winBoxes, current, finClass, winXO, winCount, letterWins) {
@@ -87,7 +85,6 @@ $(document).ready(function(){
 			$('.turn').html("O");
 			checkWin(xBoxes, 'xgo', 'xfin', "X Wins!!", xWins, '.xwins');
 			moves++;
-			console.log(moves);
 			if (moves > 9){
 				$('button').show();
 			}
@@ -98,7 +95,6 @@ $(document).ready(function(){
 			$('.turn').html("X");
 			checkWin(oBoxes, 'ogo', 'ofin', "O Wins!!", oWins, '.owins');
 			moves++;
-			console.log(moves);
 			if (moves > 10){
 				$('button').show();
 			}
@@ -118,6 +114,7 @@ $(document).ready(function(){
 	});
 
 	$('button').click(function() {
+		$('div').css('pointer-events', 'auto');
 		$('div').removeClass();
 		$('#winner').hide();
 		$('.who').show();
@@ -131,6 +128,5 @@ $(document).ready(function(){
 		}
 		xBoxes = [];
 		oBoxes = [];
-		// $('div').click('enable');
 	});
 });
