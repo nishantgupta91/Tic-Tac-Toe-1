@@ -37,10 +37,6 @@ div {
 	margin: auto;
 	text-align: center;
 }
-#winner:hover {
-	color: #5500A9;
-	background-color: #00FF99;
-}
 
 div:hover {
 	background-color: #FF99FF;

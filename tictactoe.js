@@ -1,6 +1,5 @@
-// return click event function/ remove ability to click after win
-	// fix class change on winning tiles
-	// highlight winning 3 [.addClass('xfin'/'ofin');]
+// fix class change on winning tiles
+// highlight winning 3 [.addClass('xfin'/'ofin');]
 
 // forEach(winners, checkWin) in if statement?
 
@@ -30,13 +29,7 @@ $(document).ready(function(){
 		["3", "5", "7"],
 	];
 
-	function youWon(array, current, finClass, winXO, winCount, letterWins) {
-		// for (var y = 0; y < array.length; y++){
-		// 	var identity = document.getElementById(thisOne);
-		// 	identity.removeClass(current);
-		// 	identity.addClass(finClass);
-		// }
-		// $('div').click('disable');
+	function youWon(winArray, current, finClass, winXO, winCount, letterWins) {
 		$('#winner').html(winXO);
 		$('#winner').show();
 		if (winCount == tally.forX){
@@ -51,6 +44,12 @@ $(document).ready(function(){
 		}
 		$('.who').hide();
 		$('div').css('pointer-events', 'none');
+		// for (var y = 0; y < winArray.length; y++){
+		// 	var thisOne = winArray[y];
+		// 	var identity = document.getElementById(thisOne);
+		// 	identity.removeClass(current);
+		// 	identity.addClass(finClass);
+		// }
 	};
 
 	function checkWin(winBoxes, current, finClass, winXO, winCount, letterWins) {
