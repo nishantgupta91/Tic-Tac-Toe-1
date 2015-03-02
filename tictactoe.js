@@ -1,8 +1,3 @@
-// fix class change on winning tiles
-// highlight winning 3 [.addClass('xfin'/'ofin');]
-
-// forEach(winners, checkWin) in if statement?
-
 $(document).ready(function(){
 	var tally = {
 		forX: 0,
@@ -29,7 +24,7 @@ $(document).ready(function(){
 		["3", "5", "7"],
 	];
 
-	function youWon(winArray, current, finClass, winXO, winCount, letterWins) {
+	function youWon(winXO, winCount, letterWins) {
 		$('#winner').html(winXO);
 		$('#winner').show();
 		if (winCount == tally.forX){
@@ -44,15 +39,9 @@ $(document).ready(function(){
 		}
 		$('.who').hide();
 		$('div').css('pointer-events', 'none');
-		// for (var y = 0; y < winArray.length; y++){
-		// 	var thisOne = winArray[y];
-		// 	var identity = document.getElementById(thisOne);
-		// 	identity.removeClass(current);
-		// 	identity.addClass(finClass);
-		// }
 	};
 
-	function checkWin(winBoxes, current, finClass, winXO, winCount, letterWins) {
+	function checkWin(winBoxes, winXO, winCount, letterWins) {
 		for (var i = 0; i < winners.length; i++){
 			var posArray = winners[i];
 			var count = {};
@@ -66,7 +55,7 @@ $(document).ready(function(){
 					quant.push(count[posArray[j]]);
 					if (quant.length > 2 && $.inArray(-1, quant) == -1){
 						var winArray = posArray;
-						youWon(winArray, current, finClass, winXO, winCount, letterWins);
+						youWon(winXO, winCount, letterWins);
 					}
 				}
 			}
@@ -82,7 +71,7 @@ $(document).ready(function(){
 			$(this).addClass('xgo');
 			xBoxes.push($(this).attr('id'));
 			$('.turn').html("O");
-			checkWin(xBoxes, 'xgo', 'xfin', "X Wins!!", xWins, '.xwins');
+			checkWin(xBoxes, "X Wins!!", xWins, '.xwins');
 			moves++;
 			if (moves > 9){
 				$('button').show();
@@ -92,7 +81,7 @@ $(document).ready(function(){
 			$(this).addClass('ogo');
 			oBoxes.push($(this).attr('id'));
 			$('.turn').html("X");
-			checkWin(oBoxes, 'ogo', 'ofin', "O Wins!!", oWins, '.owins');
+			checkWin(oBoxes, "O Wins!!", oWins, '.owins');
 			moves++;
 			if (moves > 10){
 				$('button').show();
