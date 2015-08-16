@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head align="center">
+	<meta charset="UTF-8">
+	<title>Tic-Tac-Toe</title>
+	<h1 style="color:#00FF99">Let's Play Tic-Tac-Toe!</h1>
 	<link rel='stylesheet' type='style/css' href='stylesheet.css'>
-	<script type='text/javascript' src='jQuery.js' ></script>
-	<script type='text/javascript' src='tictactoe.js'></script>
-	<font color = #00FF99>
-	<head align="center">
-		<title>Tic-Tac-Toe</title>
-		<h1>Let's Play Tic-Tac-Toe!</h1>
-	</head>
-	<body align="center">
-		<div id="winner">Who won?</div>
-		<p><b>X</b>: <span class="xwins">0</span> <b>O</b>: <span class="owins">0</span></p>
-		<p class="who"><b>Your turn, </b><span class="turn">X</span>.</p>
-		<div id="1"></div>
-		<div id="2"></div>
-		<div id="3"></div>
-		</br>
-		<div id="4"></div>
-		<div id="5"></div>
-		<div id="6"></div>
-		</br>
-		<div id="7"></div>
-		<div id="8"></div>
-		<div id="9"></div>
+</head>
+<body align="center">
+	<div id="winner">Who won?</div>
+	<p style="color:#00FF99"><b>X</b>: <span class="xwins">0</span> <b>O</b>: <span class="owins">0</span></p>
+	<p class="who" style="color:#00FF99"><b>Your turn, </b><span class="turn" style="color:#00FF99">X</span>.</p>
+	<div id="1"></div>
+	<div id="2"></div>
+	<div id="3"></div>
 	</br>
-	<button>Play again!</button>
-		<p>I hope you enjoyed playing!</p>
-	</body>
+	<div id="4"></div>
+	<div id="5"></div>
+	<div id="6"></div>
+	</br>
+	<div id="7"></div>
+	<div id="8"></div>
+	<div id="9"></div>
+	</br>
+	<button id="myBtn">Play again!</button>
+	<p>I hope you enjoyed playing!</p>
+
+	<script type='text/javascript' src='jQuery.js'></script>
+	<script type='text/javascript' src='clickHandlers.js'></script>
+	<script type='text/javascript' src='tictactoe.js'></script>
+</body>
 </html>
